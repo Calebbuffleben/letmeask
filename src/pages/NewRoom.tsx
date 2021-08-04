@@ -21,32 +21,33 @@ export function NewRoom(){
 			return;
 		}
 
-		const roomRef = database.ref('rooms');
+		const roomRef = database.ref('rooms');	
 
 		const firebaseRoom = await roomRef.push({
 			title: newRoom,
 			authorId: user?.id,
-		})
+		});
 
-		history.push(`/rooms/${firebaseRoom.key}`);
+		console.log(user?.id);
+		history.push(`/rooms/${firebaseRoom.key}`);	
 	}
 
 	return (
 		<div id="page-auth">
 			<aside>
-				<img src={illustrationImg} />
+				<img src={illustrationImg} alt="Imagem" />
 				<strong>Crie salas de Q&amp;A ao vivo</strong>
 				<p>Tire as dúvidas da sua audiência em tempo real</p>
 			</aside>
 			<main>
 				<div className="main-content">
-					<img src={logoImg} alt=""/>
+					<img src={logoImg} alt="Imagem" />
 					<h2>Criar uma nova sala</h2>
 					<form onSubmit={handleCreateRoom}>
 						<input
 							type="text"
 							placeholder="Nome da sala"
-							onChange={event => setNewRoom(event.target.value)}
+							onChange={(event) => {setNewRoom(event.target.value)}}
 							value={newRoom}
 						/>
 						<Button>

@@ -32,7 +32,7 @@ export function Home(){
 			return;
 		}
 
-		const roomRef = await database.ref(`rooms/${roomCode }`).get();
+		const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
 		if(!roomRef.exists()){
 			alert("Room does not exists");
@@ -45,7 +45,7 @@ export function Home(){
 	return (
 		<div id="page-auth">
 			<aside>
-				<img src={illustrationImg} />
+				<img src={illustrationImg} alt="Imagem" />
 				<strong>Crie salas de Q&amp;A ao vivo</strong>
 				<p>Tire as dúvidas da sua audiência em tempo real</p>
 			</aside>

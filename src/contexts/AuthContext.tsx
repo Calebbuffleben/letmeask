@@ -1,10 +1,11 @@
+import { stringify } from "querystring";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { auth, firebase } from "../services/firebase";
 
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
+interface User {
+  id?: string;
+  name?: string;
+  avatar?: string;
 }
 
 type AuthContextType = {
@@ -19,7 +20,7 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider(props: AuthContextProviderProps) {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User>({});
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -61,6 +62,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         avatar: photoURL
       })
     }
+    console.log(user);
   }
   
   return (
