@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { auth, firebase } from "../services/firebase";
 
@@ -62,7 +61,7 @@ export function AuthContextProvider(props: AuthContextProviderProps) {
         avatar: photoURL
       })
     }
-    console.log(user);
+    
   }
   
   return (

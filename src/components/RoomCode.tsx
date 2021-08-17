@@ -1,4 +1,3 @@
-import { isPropertySignature } from 'typescript';
 import copyImg from '../assets/images/copy.svg';
 import '../styles/room-code.scss';
 
